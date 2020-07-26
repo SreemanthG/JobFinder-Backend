@@ -30,7 +30,19 @@ var jobSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true
-       }
+       },
+    // jobStatus: [{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:"Status"
+    // }],
+    approvedCandidates: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Candidate"
+    }],
+    rejectedCandidates: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Candidate"
+    }]
 })
 
 

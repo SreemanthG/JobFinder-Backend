@@ -21,9 +21,9 @@ var candidateSchema = new mongoose.Schema({
         type: String,
         default:"Candidate"
        },
-       approvedJobs:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Job"
+        approvedJobs:[{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"Job"
         }],
         rejectedJobs:[{
         type:mongoose.Schema.Types.ObjectId,

@@ -24,8 +24,9 @@ module.exports = {
             if(err){
                 console.log(err);
             } else{
+                if(!user) return res.sendStatus(401)
                 if(bcrypt.compareSync(req.body.password, user.password)){
-                    const token = jwt.sign({id: user._id,username:user.name,email:user.email}, req.app.get('secretKey'), { expiresIn: '1h' })
+                    const token = jwt.sign({id: user._id,username:user.name,email:user.email}, req.app.get('empSecretKey'), { expiresIn: '1h' })
                     res.json({status:"success",message:"Logged In Successfully",data:user,token:token});
                 }else{
                     res.json({status:"error", message: "Invalid email/password!!!", data:null});
@@ -38,7 +39,7 @@ module.exports = {
            if(err){
                console.log(err);
            } else{
-               Employee.findById(req.body.user.id,function(err,emp){
+               Employee.findById(req.user.id,function(err,emp){
                     emp.jobs.push(job);
                     emp.save();
                     res.json({status:"success",message:"Job Created Successfully",data:job})
@@ -47,7 +48,7 @@ module.exports = {
        })
     },
     showJobs: function(req,res,next){
-        Employee.findById(req.body.user.id).populate("jobs").exec(function(err,user){
+        Employee.findById(req.user.id).populate("jobs").exec(function(err,user){
             if(err){
                 console.log(err);
             } else{

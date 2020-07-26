@@ -8,7 +8,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json('application/json'));
 mongoose.connect("mongodb://localhost/jobfinder")
 
-app.set('secretKey', 'JobFinder'); // jwt secret token
+app.set('empSecretKey', 'empJobFinder'); // jwt secret token
+app.set('cusSecretKey', 'cusJobFinder'); // jwt secret token
 //Routes
 var  userRoute = require("./app/api/routes/user")
 var  employeeRoute = require("./app/api/routes/employee")
