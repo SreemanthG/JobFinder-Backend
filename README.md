@@ -1,11 +1,11 @@
 # JobFinder-Backend
 
-#ROUTES
-#Routes of customer
+# ROUTES
+# Routes of customer
 /cus/login - post<br>
 /cus/signup  - post<br>
 <br>
-#Auth Routes of customer
+# Auth Routes of customer
 /cus/jobs  - get<br>
 /cus/jobs/accept  - post<br>
 /cus/jobs/reject  - post<br>
@@ -15,11 +15,11 @@
 /cus/showapprovedjobs  - get<br>
 /cus/showrejectedjobs  - get<br>
 
-#Routes of customer<br>
+# Routes of customer
 /emp/login  - post<br>
 /emp/signup  - post<br>
 
-#Auth Routes of Employee
+# Auth Routes of Employee
 /emp/jobs  - get<br>
 /emp/jobs/  - post<br>
 /emp/  - get<br>
